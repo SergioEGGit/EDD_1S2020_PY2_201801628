@@ -1,0 +1,155 @@
+JFDML JFormDesigner: "7.0.0.6.255" Java: "11.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"foreground": sfield java.awt.SystemColor textHighlight
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 625
+				"y": 405
+				"height": 55
+				"width": 45
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Usac Library SEG"
+				"font": new java.awt.Font( "Arial", 1, 22 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 215
+				"y": 65
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Seleccione Una De Las Siguientes Opciones:"
+				"font": new java.awt.Font( "Arial", 1, 14 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 155
+				"y": 115
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Bt_Perfil"
+				"text": "Perfil Usuario"
+				"font": new java.awt.Font( "Arial", 1, 20 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_PerfilActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 95
+				"y": 170
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Catálogo De Libros"
+				"font": new java.awt.Font( "Arial", 1, 20 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 340
+				"y": 170
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Búsqueda De Libros"
+				"font": new java.awt.Font( "Arial", 1, 20 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 60
+				"y": 245
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": "Archivo"
+					"font": new java.awt.Font( "Arial", 1, 16 )
+					"foreground": sfield java.awt.Color black
+					"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Archivo.png" )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_AgregarUsuarios"
+						"text": "Agregar Usuarios"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Usuarios.jpg" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_AgregarUsuariosActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_AgregarLibros"
+						"text": "Agregar LIbros "
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Libros.png" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_AgregarLibrosActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_Logout"
+						"text": "Cerrar Sesión"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\CerrarSesion.png" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_LogoutActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_Salir"
+						"text": "Salir"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Salir.jpg" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_SalirActionPerformed", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu2"
+					"text": "Herramientas"
+					"foreground": sfield java.awt.Color black
+					"font": new java.awt.Font( "Arial", 1, 16 )
+					"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Herramientas.jpg" )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem3"
+						"text": "Configuración IP/Puerto"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Ip.jpg" )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_JSONUsuarios"
+						"text": "Cargar Archivos Json Usuarios"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Json.png" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_JSONUsuariosActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem4"
+						"text": "Cargar Archivo Json Libros"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Json.png" )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu3"
+					"text": "Reportes"
+					"foreground": sfield java.awt.Color black
+					"font": new java.awt.Font( "Arial", 1, 16 )
+					"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\Reporte.png" )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_UsuariosReporte"
+						"text": "Reporte TablaHash Usuarios"
+						"foreground": sfield java.awt.Color blue
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Usac\\Estructuras De Datos\\Lab\\Proyecto 2\\EDD_1S2020_PY2_201801628\\Assets\\TablaHash.png" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_UsuariosReporteActionPerformed", true ) )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 10, 10 )
+			"size": new java.awt.Dimension( 685, 550 )
+		} )
+	}
+}

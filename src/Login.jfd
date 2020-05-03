@@ -1,0 +1,91 @@
+JFDML JFormDesigner: "7.0.0.6.255" Java: "11.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"title": "Ingreso"
+			"font": new java.awt.Font( "Arial", 1, 14 )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "User_Field"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "User_FieldKeyTyped", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 260
+				"y": 150
+				"width": 195
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "BT_Ingresar"
+				"text": "Ingresar"
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BT_IngresarActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 175
+				"y": 285
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "Pass_Field"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 260
+				"y": 210
+				"width": 195
+				"height": 35
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "BT_Registrar"
+				"text": "Registrarse"
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "BT_RegistrarActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 305
+				"y": 285
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 570
+				"y": 380
+				"height": 45
+				"width": 20
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Carnet:"
+				"font": new java.awt.Font( "Arial", 1, 18 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 145
+				"y": 155
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Contraseña:"
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				"font": new java.awt.Font( "Arial", 1, 18 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 145
+				"y": 215
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Ingreso De Usuarios"
+				"font": new java.awt.Font( "Arial", 1, 20 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 200
+				"y": 70
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 625, 485 )
+		} )
+	}
+}

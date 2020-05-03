@@ -1,0 +1,25 @@
+{
+    "Usuarios":[
+            {
+			       "Carnet": 201801628,
+				   "Nombre": "Sergio",
+				   "Apellido": "Gomez",
+				   "Carrera": "Ingenieria En Sistemas",
+				   "Password": "12345"
+            },
+            {
+			       "Carnet": 201801527,
+				   "Nombre": "Randy",
+				   "Apellido": "Can",
+				   "Carrera": "Medicina",
+				   "Password": "6789"        
+			},
+            {
+			       "Carnet": 201800600,
+				   "Nombre": "Lenin",
+				   "Apellido": "Calderon",
+				   "Carrera": "Derecho",
+				   "Password": "HolaQueHace" 
+			} 		
+	]
+}
