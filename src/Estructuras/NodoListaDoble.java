@@ -8,6 +8,7 @@
     import java.util.logging.Level;
     import java.util.logging.Logger;
 
+
     public class NodoListaDoble extends Thread
     {
         private InetAddress Address;
@@ -46,7 +47,7 @@
             }
         }
 
-        public void RunNodoRedListaDoble()
+        public void run()
         {
             while(true)
             {

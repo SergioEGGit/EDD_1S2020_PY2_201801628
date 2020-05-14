@@ -1,8 +1,8 @@
 
     package Estructuras;
 
+    import Metodos.Variables;
     import Modelos.Libros;
-
     import java.util.ArrayList;
     import java.util.LinkedList;
     import java.util.Queue;
@@ -40,11 +40,12 @@
         {
             if(LibroArbolB.contains(Libro))
             {
-                System.out.printf("Soy El Libro");
+                System.out.print("Soy El Libro");
             }
             else
             {
                 LibroArbolB.add(Libro);
+                Variables.GenerarBloquesData.CrearLibroBloques(Libro);
                 SubNodos SubNodoAuxiliar = Nodo.InsertarNodoArbolB(Libro);
 
                 if(SubNodoAuxiliar != null)
@@ -162,6 +163,7 @@
                             SubNodos SubNodoAuxilar;
                             Libros LibroEliminar = new Libros();
                             LibroEliminar = LibroActual;
+                            Variables.GenerarBloquesData.EliminarLibroBloques(LibroActual);
                             LibroArbolB.remove(LibroEliminar);
 
                             for(Libros Int : LibroArbolB)

@@ -4,15 +4,14 @@
    import Metodos.GenerarReportes;
    import Metodos.Variables;
    import Modelos.Libros;
-
    import javax.swing.*;
-   import java.lang.reflect.Array;
    import java.util.ArrayList;
 
    public class ArbolAVLCategorias
    {
       NodoArbolAVL Raiz;
       ArrayList<Integer> ISBN = new ArrayList<Integer>();
+      Boolean Bandera = true;
 
       public int AlturaArbolAVL(NodoArbolAVL NuevoNodo) {
          return NuevoNodo == null ? -1 : NuevoNodo.getAltura();
@@ -51,9 +50,13 @@
       }
 
       public NodoArbolAVL InsertarCategoriaArbolAVL(NodoArbolAVL ArbolAVL, String Categoria, int Carnet) {
-         if (ArbolAVL == null) {
+         if (ArbolAVL == null)
+         {
             ArbolAVL = new NodoArbolAVL(Categoria, null, null, Carnet);
-         } else if (Categoria.compareTo(ArbolAVL.getCategoria()) < 0) {
+            Variables.GenerarBloquesData.CrearCategoriaBloques(ArbolAVL);
+         }
+         else if (Categoria.compareTo(ArbolAVL.getCategoria()) < 0)
+         {
             ArbolAVL.setHIzquierda(InsertarCategoriaArbolAVL(ArbolAVL.getHIzquierda(), Categoria, Carnet));
 
             if (AlturaArbolAVL(ArbolAVL.getHIzquierda()) - AlturaArbolAVL(ArbolAVL.getHDerecha()) < 0) {
@@ -329,6 +332,12 @@
                   }
 
                   ISBN.removeAll(ListaEliminados);
+
+                  if(Bandera)
+                  {
+                     Variables.GenerarBloquesData.EliminarCategoriaBloques(Root);
+                     Bandera = false;
+                  }
                   Root = null;
                }
                else
@@ -345,6 +354,12 @@
                    }
 
                    ISBN.removeAll(ListaEliminados);
+
+                   if(Bandera)
+                   {
+                      Variables.GenerarBloquesData.EliminarCategoriaBloques(Root);
+                      Bandera = false;
+                   }
                    Root = Aux;
                }
             }
@@ -362,6 +377,13 @@
                   }
                }
                ISBN.removeAll(ListaEliminados);
+
+               if(Bandera)
+               {
+                  Variables.GenerarBloquesData.EliminarCategoriaBloques(Root);
+                  Bandera = false;
+               }
+
                Root.setCategoria(Aux2.getCategoria());
                Root.setArbolB(Aux2.getArbolB());
                Root.setCarnet_Usuario_Creador(Aux2.getCarnet_Usuario_Creador());
@@ -417,6 +439,7 @@
 
       public void EliminarCategoriaArbolAVL(String Categoria, int Carnet)
       {
+         Bandera = true;
          Raiz = EliminarCategoriaRecorrerArbolAVL(Raiz, Categoria, Carnet);
       }
 

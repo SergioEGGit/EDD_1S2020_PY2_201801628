@@ -2,7 +2,6 @@
     package Metodos;
 
     import Estructuras.*;
-
     import javax.swing.*;
 
     public class Variables

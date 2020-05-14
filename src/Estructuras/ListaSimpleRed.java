@@ -12,11 +12,6 @@
             return Inicio;
         }
 
-        public void setInicio(NodoListaSimple inicio)
-        {
-            Inicio = inicio;
-        }
-
         public ListaSimpleRed()
         {
 

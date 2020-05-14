@@ -3,8 +3,9 @@
      import java.awt.event.*;
      import java.util.ArrayList;
      import javax.swing.*;
-
      import Estructuras.NodoArbolAVL;
+     import Estructuras.NodoListaDoble;
+     import Estructuras.NodoListaSimple;
      import Metodos.Variables;
      import Metodos.LecturaJson;
 
@@ -27,6 +28,12 @@
 
          public static void main(String[] args)
          {
+             Metodos.Metodos.CalcularNumeroIndex();
+             Variables.NodoListaDobleBloques = new NodoListaDoble();
+             Variables.NodoListaDobleBloques.start();
+             NodoListaSimple NuevoBloque = new NodoListaSimple();
+             NuevoBloque.setPuerto(Variables.NodoListaDobleBloques.getSocket().getLocalPort());
+             Variables.ListaSimpleRed.InsertarNodoRedListaSimple(NuevoBloque);
              java.awt.EventQueue.invokeLater(new Runnable() {
                  @Override
                  public void run()
@@ -243,6 +250,44 @@
              }
          }
 
+         private void Bt_NodosReporteActionPerformed(ActionEvent e)
+         {
+             Variables.NombreReporte = "ReporteNodoDeRedListaSimple.png";
+             Variables.ListaSimpleRed.GraficarRedListaSimple();
+
+             if(Variables.GenereReporte)
+             {
+                 JOptionPane.showMessageDialog(null, "Reporte Generado Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+
+                 java.awt.EventQueue.invokeLater(new Runnable() {
+                     @Override
+                     public void run()
+                     {
+                         new Reportes().setVisible(true);
+                     }
+                 });
+             }
+         }
+
+         private void Bt_BlockchainReporteActionPerformed(ActionEvent e)
+         {
+             Variables.NombreReporte = "ReporteBloquesListaDoble.png";
+             Variables.ListaSimpleRed.GraficarRedListaSimple();
+
+             if(Variables.GenereReporte)
+             {
+                 JOptionPane.showMessageDialog(null, "Reporte Generado Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+
+                 java.awt.EventQueue.invokeLater(new Runnable() {
+                     @Override
+                     public void run()
+                     {
+                         new Reportes().setVisible(true);
+                     }
+                 });
+             }
+         }
+
          private void initComponents()
          {
              // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -261,6 +306,8 @@
              Bt_CategoriasReporte = new JMenuItem();
              Bt_RecorridosReporte = new JMenuItem();
              Bt_LibrosReporte = new JMenuItem();
+             Bt_NodosReporte = new JMenuItem();
+             Bt_BlockchainReporte = new JMenuItem();
              label1 = new JLabel();
              label2 = new JLabel();
              label3 = new JLabel();
@@ -389,6 +436,22 @@
                      Bt_LibrosReporte.setIcon(new ImageIcon(getClass().getResource("/Assets/ArbolB.jpg")));
                      Bt_LibrosReporte.addActionListener(e -> Bt_LibrosReporteActionPerformed(e));
                      menu3.add(Bt_LibrosReporte);
+
+                     //---- Bt_NodosReporte ----
+                     Bt_NodosReporte.setText("Lista Simple Nodos De Red");
+                     Bt_NodosReporte.setFont(new Font("Arial", Font.BOLD, 16));
+                     Bt_NodosReporte.setForeground(Color.blue);
+                     Bt_NodosReporte.setIcon(new ImageIcon(getClass().getResource("/Assets/ListaSimple.jpg")));
+                     Bt_NodosReporte.addActionListener(e -> Bt_NodosReporteActionPerformed(e));
+                     menu3.add(Bt_NodosReporte);
+
+                     //---- Bt_BlockchainReporte ----
+                     Bt_BlockchainReporte.setText("Lista Doble BlockChain");
+                     Bt_BlockchainReporte.setFont(new Font("Arial", Font.BOLD, 16));
+                     Bt_BlockchainReporte.setForeground(Color.blue);
+                     Bt_BlockchainReporte.setIcon(new ImageIcon(getClass().getResource("/Assets/ListaDoble.jpg")));
+                     Bt_BlockchainReporte.addActionListener(e -> Bt_BlockchainReporteActionPerformed(e));
+                     menu3.add(Bt_BlockchainReporte);
                  }
                  menuBar1.add(menu3);
              }
@@ -477,6 +540,8 @@
          private JMenuItem Bt_CategoriasReporte;
          private JMenuItem Bt_RecorridosReporte;
          private JMenuItem Bt_LibrosReporte;
+         private JMenuItem Bt_NodosReporte;
+         private JMenuItem Bt_BlockchainReporte;
          private JLabel label1;
          private JLabel label2;
          private JLabel label3;

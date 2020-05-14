@@ -4,10 +4,12 @@
     import javax.swing.*;
 
     import Estructuras.NodoArbolAVL;
-    import Metodos.Variables;
-    import Metodos.MD5;
     import Modelos.Libros;
     import Modelos.Usuarios;
+    import Metodos.GenerarBloquesJSON;
+
+    import java.io.File;
+    import java.sql.Timestamp;
 
     public class Metodos
     {
@@ -77,6 +79,40 @@
                 Variables.ArbolAVLCategorias.InicializarCategoriaArbolAVL(Categoria, Carnet_Usuario_Creador);
                 Categorias = Variables.ArbolAVLCategorias.InicializarBuscarCategoriaArbolAVL(Categoria);
                 Variables.ArbolAVLCategorias.InsertarLibroArbolAVL(Categorias, NuevoLibro);
+            }
+        }
+
+        public static void CalcularNumeroIndex()
+        {
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+            String Ruta = System.getProperty("user.dir") + "\\" + "Bloques";
+
+            File Archivo = new File(Ruta);
+
+            if(Archivo.exists())
+            {
+                String[] Array = Archivo.list();
+
+                if(Array == null || Array.length == 0)
+                {
+                    System.out.println("No hay elementos dentro de la carpeta actual");
+                }
+                else
+                {
+                    for(int i = 0; i < Array.length; i++)
+                    {
+                        System.out.println(Array[i]);
+                        GenerarBloquesJSON.ObtenerBloques("Bloques\\" + Array[i]);
+                        Variables.IndexBloque = i + 1;
+                    }
+                    System.out.println("Siguiente Bloque: "+ Variables.IndexBloque);
+                }
+            }
+            else
+            {
+                System.out.println("No Existe");
+                Archivo.mkdir();
             }
         }
     }

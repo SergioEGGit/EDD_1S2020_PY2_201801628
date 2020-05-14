@@ -183,6 +183,22 @@ new FormModel {
 						"icon": new com.jformdesigner.model.SwingIcon( 0, "/Assets/ArbolB.jpg" )
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_LibrosReporteActionPerformed", true ) )
 					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_NodosReporte"
+						"text": "Lista Simple Nodos De Red"
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"foreground": sfield java.awt.Color blue
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/Assets/ListaSimple.jpg" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_NodosReporteActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "Bt_BlockchainReporte"
+						"text": "Lista Doble BlockChain"
+						"font": new java.awt.Font( "Arial", 1, 16 )
+						"foreground": sfield java.awt.Color blue
+						"icon": new com.jformdesigner.model.SwingIcon( 0, "/Assets/ListaDoble.jpg" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_BlockchainReporteActionPerformed", true ) )
+					} )
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {

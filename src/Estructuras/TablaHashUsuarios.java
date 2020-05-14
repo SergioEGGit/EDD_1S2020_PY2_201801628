@@ -4,7 +4,6 @@
     import Metodos.Variables;
     import Modelos.Usuarios;
     import Metodos.GenerarReportes;
-
     import javax.swing.*;
     import java.util.ArrayList;
     import java.util.Iterator;
@@ -43,12 +42,14 @@
                 if(TablaUsuarios[PosicionHash] != null)
                 {
                     TablaUsuarios[PosicionHash].InsetarUsuarios(NuevoUsuario);
+                    Variables.GenerarBloquesData.CrearUsuarioBloques(NuevoUsuario);
                 }
                 else
                 {
                     NodoHashUsuarios NuevoNodo = new NodoHashUsuarios();
                     TablaUsuarios[PosicionHash] = NuevoNodo;
                     TablaUsuarios[PosicionHash].InsetarUsuarios(NuevoUsuario);
+                    Variables.GenerarBloquesData.CrearUsuarioBloques(NuevoUsuario);
                 }
 
                 Variables.ExisteUsuarios = true;
@@ -109,6 +110,7 @@
                 UsuarioModificado.setNombre(Nombre);
                 UsuarioModificado.setCarrera(Carrera);
                 UsuarioModificado.setPassword(Contrasena);
+                Variables.GenerarBloquesData.EditarUsuarioBloques(UsuarioModificado);
             }
             else
             {

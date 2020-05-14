@@ -1,6 +1,8 @@
 
     package Estructuras;
+
     import Modelos.Usuarios;
+    import Metodos.Variables;
 
     public class ListaSimpleUsuarios
     {
@@ -52,12 +54,14 @@
                 if(Carnet == Aux.getCarnet() && Aux == getUs())
                 {
                     setUs(Aux.getSgte());
+                    Variables.GenerarBloquesData.EliminarUsuarioBloques(Aux);
                     Borrado = true;
                     break;
                 }
                 else if(Carnet == Aux.getCarnet() && Aux != getUs())
                 {
                     Aux2.setSgte(Aux.getSgte());
+                    Variables.GenerarBloquesData.EliminarUsuarioBloques(Aux);
                     Aux = null;
                     Borrado = true;
                     break;

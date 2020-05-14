@@ -1,6 +1,7 @@
 
     package Estructuras;
 
+
     public class NodoListaSimple extends Thread
     {
         private int Puerto;

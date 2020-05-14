@@ -10,6 +10,7 @@
     import org.apache.commons.codec.binary.Base64;
     import java.security.NoSuchAlgorithmException;
 
+
     public class MD5
     {
         public static String EncriptarPassword(String Pass)

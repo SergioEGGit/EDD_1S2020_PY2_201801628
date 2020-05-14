@@ -1,6 +1,7 @@
 
     package Modelos;
 
+
     public class Usuarios
     {
         private int Carnet;

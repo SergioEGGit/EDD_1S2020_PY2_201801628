@@ -1,6 +1,7 @@
 
     package Estructuras;
 
+
     public class NodoArbolAVL
     {
         private String Categoria;

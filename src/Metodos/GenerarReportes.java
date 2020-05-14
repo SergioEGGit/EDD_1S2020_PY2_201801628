@@ -4,6 +4,7 @@
     import javax.swing.*;
     import java.io.*;
 
+
     public class GenerarReportes
     {
         private static String TipoReporte;

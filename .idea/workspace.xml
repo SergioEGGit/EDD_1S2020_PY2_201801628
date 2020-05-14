@@ -7,80 +7,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d238073b-9492-4d72-8557-3f6d34f51ede" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Proyecto_2_Usac_Library_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CatalogoLibros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CatalogoLibros.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/ArbolAVLCategorias.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/ArbolBLibros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/ListaDobleBloques.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/ListaSimpleRed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/NodoArbolAVL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/NodoArbolB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/NodoListaDoble.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/NodoListaSimple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Estructuras/SubNodos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LibrosOperaciones.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LibrosOperaciones.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metodos/DataBloques.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metodos/GenerarBloquesJSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metodos/GenerarReportes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modelos/Bloques.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modelos/Libros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RegistroCategorias.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RegistroCategorias.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RegistroLibros.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RegistroLibros.jfd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Reportes.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Reportes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Archivo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CerrarSesion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Herramientas.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ip.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Json.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Libros.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Reporte.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Salir.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TablaHash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Usuarios.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Usuarios.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Proyecto_2_Usac_Library_jar/Proyecto 2 Usac Library.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Proyecto_2_Usac_Library_jar/Proyecto 2 Usac Library.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/ArbolAVLCategorias.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/ArbolAVLCategorias.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/ArbolBLibros.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/ArbolBLibros.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/ListaSimpleUsuarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/ListaSimpleUsuarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/NodoArbolAVL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/NodoArbolAVL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/NodoArbolB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/NodoArbolB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/NodoHashUsuarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/NodoHashUsuarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/SubNodos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/SubNodos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/TablaHashUsuarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Estructuras/TablaHashUsuarios.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/LecturaJson.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/GenerarReportes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/GenerarReportes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/GraphViz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/GraphViz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/LecturaJson.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/LecturaJson.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/Metodos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/Metodos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/Variables.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Perfil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/Variables.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Metodos/Variables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Modelos/Libros.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Modelos/Libros.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$12.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/Principal.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto 2 Usac Library/RegistroUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/ArbolAVLCategorias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ArbolAVLCategorias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/ArbolBLibros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ArbolBLibros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/ListaDobleBloques.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ListaDobleBloques.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/ListaSimpleRed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ListaSimpleRed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Estructuras/ListaSimpleUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ListaSimpleUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/NodoArbolAVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/NodoArbolAVL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/NodoArbolB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/NodoArbolB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Estructuras/NodoHashUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/NodoHashUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/NodoListaDoble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/NodoListaDoble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/NodoListaSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/NodoListaSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Estructuras/SubNodos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/SubNodos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Estructuras/TablaHashUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/TablaHashUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Metodos/DataBloques.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/DataBloques.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Metodos/GenerarBloquesJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/GenerarBloquesJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Metodos/GenerarReportes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/GenerarReportes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Metodos/GraphViz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/GraphViz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Metodos/LecturaJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/LecturaJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Metodos/MD5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/MD5.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Metodos/Metodos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/Metodos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Metodos/Variables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Metodos/Variables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Perfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Perfil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelos/Bloques.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelos/Bloques.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelos/Libros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelos/Libros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelos/Usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelos/Usuarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Principal.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/Principal.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RegistroUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegistroUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +150,7 @@
       <workItem from="1589200761770" duration="32394000" />
       <workItem from="1589289761877" duration="24511000" />
       <workItem from="1589391957252" duration="16209000" />
-      <workItem from="1589465526965" duration="4606000" />
+      <workItem from="1589465526965" duration="14020000" />
     </task>
     <servers />
   </component>
@@ -205,22 +186,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589070728035" />
-    <state width="1367" height="277" key="GridCell.Tab.0.bottom" timestamp="1589475061314">
+    <state width="1367" height="277" key="GridCell.Tab.0.bottom" timestamp="1589496519728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="277" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589475061314" />
-    <state width="1367" height="277" key="GridCell.Tab.0.center" timestamp="1589475061314">
+    <state width="1367" height="277" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589496519728" />
+    <state width="1367" height="277" key="GridCell.Tab.0.center" timestamp="1589496519728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="277" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589475061314" />
-    <state width="1367" height="277" key="GridCell.Tab.0.left" timestamp="1589475061310">
+    <state width="1367" height="277" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589496519728" />
+    <state width="1367" height="277" key="GridCell.Tab.0.left" timestamp="1589496519728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="277" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589475061310" />
-    <state width="1367" height="277" key="GridCell.Tab.0.right" timestamp="1589475061314">
+    <state width="1367" height="277" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589496519728" />
+    <state width="1367" height="277" key="GridCell.Tab.0.right" timestamp="1589496519728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1367" height="277" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589475061314" />
+    <state width="1367" height="277" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589496519728" />
     <state x="197" y="59" width="1028" height="600" key="NewModule_or_Project.wizard" timestamp="1589070785692">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
