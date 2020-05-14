@@ -1,0 +1,138 @@
+JFDML JFormDesigner: "7.0.0.6.255" Java: "11.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Categorías"
+				"font": new java.awt.Font( "Arial", 1, 22 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 360
+				"y": 45
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Agregar Categoría"
+				"font": new java.awt.Font( "Arial", 1, 18 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 145
+				"y": 125
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Eliminar Categoría"
+				"font": new java.awt.Font( "Arial", 1, 18 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 170
+				"height": 19
+				"x": 500
+				"y": 125
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Nombre:"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 100
+				"y": 195
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 820
+				"y": 645
+				"height": 60
+				"width": 35
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "Categoria_Field"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 185
+				"y": 190
+				"width": 155
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Bt_Agregar"
+				"text": "Agregar"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_AgregarActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 180
+				"y": 250
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Seleccione La Categoría Que Desea Eliminar"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 425
+				"y": 180
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "Eliminar_Field"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 102, 102, 255, 255 )
+				"editable": false
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 450
+				"y": 235
+				"width": 180
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Bt_Eliminar"
+				"text": "Eliminar"
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_EliminarActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 660
+				"y": 235
+				"width": 115
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "Tb_Categorias"
+					"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+						add( new java.util.Vector )
+						add( new java.util.Vector )
+					}, new java.util.Vector, new java.util.Vector, new java.util.Vector, new java.util.Vector )
+					"font": new java.awt.Font( "Arial", 0, 16 )
+					"foreground": new java.awt.Color( 0, 0, 204, 255 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"gridColor": new java.awt.Color( 255, 51, 0, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "Tb_CategoriasMouseClicked", true ) )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 160
+				"y": 345
+				"height": 307
+				"width": 535
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Bt_Regresar"
+				"text": "Regresar"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_RegresarActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 610
+				"y": 45
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 860, 745 )
+		} )
+	}
+}

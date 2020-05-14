@@ -6,9 +6,19 @@
     {
         private Usuarios Us;
 
+        public Usuarios getUs()
+        {
+            return Us;
+        }
+
+        public void setUs(Usuarios us)
+        {
+            Us = us;
+        }
+
         public boolean ListaVacia()
         {
-            if(Us != null)
+            if(getUs() != null)
             {
                 return false;
             }
@@ -22,30 +32,30 @@
         {
             if(ListaVacia())
             {
-                Us = NuevoUsuario;
+                setUs(NuevoUsuario);
             }
             else
             {
-                NuevoUsuario.setSgte(Us);
-                Us = NuevoUsuario;
+                NuevoUsuario.setSgte(getUs());
+                setUs(NuevoUsuario);
             }
         }
 
         public boolean BorrarUsuarioLS(int Carnet)
         {
-            Usuarios Aux = Us;
-            Usuarios Aux2 = Us;
+            Usuarios Aux = getUs();
+            Usuarios Aux2 = getUs();
             boolean Borrado = false;
 
             while(Aux != null)
             {
-                if(Carnet == Aux.getCarnet() && Aux == Us)
+                if(Carnet == Aux.getCarnet() && Aux == getUs())
                 {
-                    Us = Aux.getSgte();
+                    setUs(Aux.getSgte());
                     Borrado = true;
                     break;
                 }
-                else if(Carnet == Aux.getCarnet() && Aux != Us)
+                else if(Carnet == Aux.getCarnet() && Aux != getUs())
                 {
                     Aux2.setSgte(Aux.getSgte());
                     Aux = null;
@@ -60,7 +70,7 @@
 
         public Usuarios BuscarUsuarioLS(int Carnet)
         {
-            Usuarios Aux = Us;
+            Usuarios Aux = getUs();
 
             while(Aux != null)
             {
@@ -73,18 +83,26 @@
             return null;
         }
 
-        public Usuarios IngresoUsuarioLS(int Carnet, String Contraseña)
+        public String TablaHashReporte(int Identificador)
         {
-            Usuarios Aux = Us;
+            String Cadena = "";
+
+            Cadena += "subgraph Usuario" + Identificador + "\n { \n    rankdir = \"LR\"; \n    node[shape = rect color = brown1 fontcolor = chartreuse4]; \n";
+            Usuarios Aux = getUs();
 
             while(Aux != null)
             {
-                if(Carnet == Aux.getCarnet() && Contraseña.equals(Aux.getPassword()))
+                Cadena += Aux.getCarnet() + "[label = \"No.Carnet: " + Aux.getCarnet() + "\n Nombre: " + Aux.getNombre() + "\n Apellido: " + Aux.getApellido() + "\n Carrera: " + Aux.getCarrera() + "\n Password: " + Aux.getPassword() + "\"];\n";
+                Usuarios Puntero = Aux.getSgte();
+
+                if(Puntero != null)
                 {
-                    return Aux;
+                    Cadena += Aux.getCarnet() + " -> " + Puntero.getCarnet() + "; \n";
                 }
                 Aux = Aux.getSgte();
             }
-            return null;
+
+            Cadena += "} \n";
+            return Cadena;
         }
     }

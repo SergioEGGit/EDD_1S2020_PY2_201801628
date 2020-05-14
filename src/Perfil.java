@@ -82,7 +82,6 @@
 
             if(Contraseña_Field.getText().equals(""))
             {
-                JOptionPane.showMessageDialog(null,"Entre", "Entre", JOptionPane.INFORMATION_MESSAGE);
                 Usuarios UsuarioModificar = Variables.TablaHashUsuarios.BuscarUsuarios(Variables.NumeroCarnetUsuarioLog);
                 Metodos.ModificarUsuario(Carnet, Nombre_Field.getText(), Apellido_Field.getText(), Carrera_Field.getText(), UsuarioModificar.getPassword());
             }
@@ -100,12 +99,12 @@
             JOptionPane.showMessageDialog(null, "Perfil Eliminado Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
 
             this.dispose();
+            Variables.Principal.dispose();
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run()
                 {
                     new Login().setVisible(true);
-                    new Principal().dispose();
                 }
             });
 

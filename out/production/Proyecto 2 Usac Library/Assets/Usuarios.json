@@ -1,0 +1,53 @@
+{
+    "Usuarios":[
+            {
+			       "Carnet": 201801627,
+				   "Nombre": "Sergio",
+				   "Apellido": "Gomez",
+				   "Carrera": "Ingenieria En Sistemas",
+				   "Password": "12345"
+            },
+            {
+			       "Carnet": 201801527,
+				   "Nombre": "Randy",
+				   "Apellido": "Can",
+				   "Carrera": "Medicina",
+				   "Password": "6789"        
+			},
+            {
+			       "Carnet": 201800600,
+				   "Nombre": "Lenin",
+				   "Apellido": "Calderon",
+				   "Carrera": "Derecho",
+				   "Password": "HolaQueHace" 
+			},
+            {
+			       "Carnet": 201501628,
+				   "Nombre": "Sergio",
+				   "Apellido": "Perez",
+				   "Carrera": "Ingenieria En Sistemas",
+				   "Password": "12345"
+            },
+            {
+			       "Carnet": 201301527,
+				   "Nombre": "Julio",
+				   "Apellido": "Can",
+				   "Carrera": "Medicina",
+				   "Password": "6789"        
+			},
+            {
+			       "Carnet": 201000600,
+				   "Nombre": "Ernesto",
+				   "Apellido": "Calderon",
+				   "Carrera": "Derecho",
+				   "Password": "HolaQueHace" 
+			}, 	
+			{
+			       "Carnet": 201000600,
+				   "Nombre": "Ernesto",
+				   "Apellido": "Calderon",
+				   "Carrera": "Derecho",
+				   "Password": "HolaQueHace" 
+			}  
+	]
+}

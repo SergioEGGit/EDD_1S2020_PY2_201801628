@@ -12,11 +12,6 @@
             return ListaUsuarios;
         }
 
-        public void setListaUsuarios(ListaSimpleUsuarios listaUsuarios)
-        {
-            ListaUsuarios = listaUsuarios;
-        }
-
         public NodoHashUsuarios()
         {
             ListaUsuarios = new ListaSimpleUsuarios();
@@ -36,6 +31,4 @@
         {
             return ListaUsuarios.BuscarUsuarioLS(Carnet);
         }
-
-        public Usuarios IngresarUsuarios(int Carnet, String Contraseña) {return ListaUsuarios.IngresoUsuarioLS(Carnet, Contraseña);}
     }

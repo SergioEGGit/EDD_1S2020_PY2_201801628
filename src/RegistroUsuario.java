@@ -78,7 +78,6 @@
             {
                 this.dispose();
             }
-
         }
 
         private void Bt_RegistrarActionPerformed(ActionEvent e)
@@ -87,6 +86,8 @@
 
             if(Metodos.RegistrarUsuario(Carnet, Nombre_Field.getText(), Apellido_Field.getText(), Carrera_Field.getText(), Contraseña_Field.getText()))
             {
+                JOptionPane.showMessageDialog(null, "Usuario Agregado Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+
                 if(Variables.EstoyEnLogin)
                 {
                     int Button = JOptionPane.YES_NO_OPTION;
