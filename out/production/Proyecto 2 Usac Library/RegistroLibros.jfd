@@ -5,6 +5,9 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
+			"defaultCloseOperation": 2
+			"resizable": false
+			"title": "Registro Libros"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
 				"text": "Registro De Libros"

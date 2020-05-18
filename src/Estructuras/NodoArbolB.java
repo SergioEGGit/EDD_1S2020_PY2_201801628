@@ -86,6 +86,32 @@
             setSubNodo(Hijos);
         }
 
+        public NodoArbolB BuscarNodoArbolB(Libros Libro)
+        {
+            if(LibrosNodo.contains(Libro))
+            {
+                return this;
+            }
+            else
+            {
+                if(Hoja)
+                {
+                    return null;
+                }
+                else
+                {
+                    int Contador = 0;
+
+                    while(Contador < LibrosNodo.size() && Libro.getISBN() > LibrosNodo.get(Contador).getISBN())
+                    {
+                        Contador++;
+                    }
+
+                    return SubNodo.get(Contador).BuscarNodoArbolB(Libro);
+                }
+            }
+        }
+
         public SubNodos DividirNodoArbolB()
         {
             ArrayList<Libros> LibrosIzquierda = new ArrayList<Libros>();

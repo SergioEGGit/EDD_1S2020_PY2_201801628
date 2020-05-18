@@ -94,7 +94,7 @@
 
             while(Aux != null)
             {
-                Cadena += "A" + Aux.getPuerto() + "[label = \" Puerto: " + Aux.getPuerto() + "\"]; \n";
+                Cadena += "A" + Aux.getPuerto() + "[label = \" Ip: " + Aux.getIp().toString() + "\\lPuerto: " + Aux.getPuerto() + "\"]; \n";
 
                 if(Aux.getSgte() != null)
                 {

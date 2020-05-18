@@ -22,6 +22,7 @@
         {
             initComponents();
             PerfilActual();
+            setLocationRelativeTo(null);
         }
 
         private void PerfilActual()
@@ -115,6 +116,10 @@
             this.dispose();
         }
 
+        private void Bt_RegistrarActionPerformed(ActionEvent e) {
+            // TODO add your code here
+        }
+
         private void initComponents()
         {
             // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -136,6 +141,8 @@
 
             //======== this ========
             setTitle("Perfil");
+            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            setResizable(false);
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
 
@@ -144,6 +151,7 @@
             Bt_Modificar.setForeground(new Color(0, 153, 255));
             Bt_Modificar.setFont(new Font("Arial", Font.BOLD, 18));
             Bt_Modificar.addActionListener(e -> {
+			Bt_RegistrarActionPerformed(e);
 			Bt_ModificarActionPerformed(e);
 		});
             contentPane.add(Bt_Modificar);
@@ -251,6 +259,7 @@
             Bt_Eliminar.setForeground(new Color(0, 153, 255));
             Bt_Eliminar.setFont(new Font("Arial", Font.BOLD, 18));
             Bt_Eliminar.addActionListener(e -> {
+			Bt_RegistrarActionPerformed(e);
 			Bt_EliminarActionPerformed(e);
 		});
             contentPane.add(Bt_Eliminar);

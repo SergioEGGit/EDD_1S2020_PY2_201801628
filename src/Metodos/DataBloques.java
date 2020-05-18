@@ -111,7 +111,7 @@
         public void EditarUsuarioBloques(Usuarios NuevoUsuario)
         {
             EditarUsuario += "{ \n";
-            EditarUsuario += "\"Carnet\": " + NuevoUsuario.getCarnet() + "\", \n";
+            EditarUsuario += "\"Carnet\": " + NuevoUsuario.getCarnet() + ", \n";
             EditarUsuario += "\"Nombre\": \"" + NuevoUsuario.getNombre() + "\", \n";
             EditarUsuario += "\"Apellido\": \"" + NuevoUsuario.getApellido() + "\", \n";
             EditarUsuario += "\"Carrera\": \"" + NuevoUsuario.getCarrera() + "\", \n";

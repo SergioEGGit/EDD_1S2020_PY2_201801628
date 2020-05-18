@@ -2,10 +2,23 @@
     package Estructuras;
 
 
+    import java.net.InetAddress;
+
     public class NodoListaSimple extends Thread
     {
         private int Puerto;
+        private InetAddress Ip;
         private NodoListaSimple Sgte;
+
+        public InetAddress getIp()
+        {
+            return Ip;
+        }
+
+        public void setIp(InetAddress ip)
+        {
+            Ip = ip;
+        }
 
         public int getPuerto()
         {

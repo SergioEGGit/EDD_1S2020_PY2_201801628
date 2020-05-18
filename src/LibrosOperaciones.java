@@ -23,12 +23,15 @@ import java.awt.*;
 
         ArrayList<Libros> ListaDeLibros =new ArrayList<Libros>();
         DefaultTableModel Modelo;
+        String ISBN = "";
+        String Nombre = "";
 
         public LibrosOperaciones()
         {
             initComponents();
             ListaDeLibros = Variables.ArbolAVLCategorias.ListarTodosLosLibrosArbolAVL();
             ObtenerLibros();
+            setLocationRelativeTo(null);
         }
 
         public void ObtenerLibros()
@@ -103,6 +106,8 @@ import java.awt.*;
             int Fila = Tb_Libros.getSelectedRow();
 
             String Valor = Tb_Libros.getValueAt(Fila, Columna).toString();
+            ISBN = Valor;
+            Nombre = Tb_Libros.getValueAt(Fila, 1).toString();
 
             Eliminar_Field.setText(Valor);
         }
@@ -112,16 +117,28 @@ import java.awt.*;
             try
             {
                 int ISBN = Integer.parseInt(Eliminar_Field.getText());
-                Libros LibroBorrar = Variables.ArbolAVLCategorias.InicizalizarEliminacionArboAVL(ISBN, Variables.NumeroCarnetUsuarioLog);
+                int Button = JOptionPane.YES_NO_OPTION;
+                int Result = JOptionPane.showConfirmDialog(this, "Seguro Que Desea Eliminar El Libro: \nISBN: " + ISBN + "\nTitulo: " + Nombre, "Pregunta!", Button);
 
-                if(LibroBorrar != null)
+                if(Result == 0)
                 {
-                    JOptionPane.showMessageDialog(null, "Libro Eliminado Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+                    Libros LibroBorrar = Variables.ArbolAVLCategorias.InicizalizarEliminacionArboAVL(ISBN, Variables.NumeroCarnetUsuarioLog);
+
+                    if(LibroBorrar != null)
+                    {
+                        JOptionPane.showMessageDialog(null, "Libro Eliminado Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "No Se Puede Eliminar El Libro Indicado \nDebido A Que Usted No Agrego Ese Libro", "Advertencia!", JOptionPane.WARNING_MESSAGE);
+                    }
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null, "No Se Puede Eliminar El Libro Indicado \nDebido A Que Usted No Agrego Ese Libro", "Advertencia!", JOptionPane.WARNING_MESSAGE);
+                    Eliminar_Field.setText("");
+                    Buscar_Field.setText("");
                 }
+
             }
             catch(Exception Ex)
             {
@@ -149,6 +166,9 @@ import java.awt.*;
             Bt_Eliminar = new JButton();
 
             //======== this ========
+            setResizable(false);
+            setTitle("Libros");
+            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
 
@@ -218,7 +238,6 @@ import java.awt.*;
             //---- Eliminar_Field ----
             Eliminar_Field.setFont(new Font("Arial", Font.BOLD, 16));
             Eliminar_Field.setForeground(new Color(102, 102, 255));
-            Eliminar_Field.setEditable(false);
             contentPane.add(Eliminar_Field);
             Eliminar_Field.setBounds(565, 120, 180, 35);
 

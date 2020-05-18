@@ -1,5 +1,0 @@
-digraph G { 
- rankdir = "LR"; 
- node[shape = rect, fontname = Arial, color = chartreuse1, fontcolor = firebrick]; 
-A62386[label = " Puerto: 62386"]; 
-}

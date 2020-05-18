@@ -1,6 +1,8 @@
 
      import java.awt.*;
      import java.awt.event.*;
+     import java.net.InetAddress;
+     import java.net.UnknownHostException;
      import java.util.ArrayList;
      import javax.swing.*;
      import Estructuras.NodoArbolAVL;
@@ -26,13 +28,17 @@
              Variables.Principal = this;
          }
 
-         public static void main(String[] args)
+         public static void main(String[] args) throws UnknownHostException
          {
+             Variables.OsName = System.getProperty("os.name").replaceAll("\\s","");
+             Metodos.Metodos.ObtenerInternalIp();
              Metodos.Metodos.CalcularNumeroIndex();
              Variables.NodoListaDobleBloques = new NodoListaDoble();
              Variables.NodoListaDobleBloques.start();
              NodoListaSimple NuevoBloque = new NodoListaSimple();
-             NuevoBloque.setPuerto(Variables.NodoListaDobleBloques.getSocket().getLocalPort());
+             NuevoBloque.setPuerto(Variables.NodoListaDobleBloques.getSocketUDP().getLocalPort());
+             InetAddress Ip = InetAddress.getByName(Variables.InternalIp);
+             NuevoBloque.setIp(Ip);
              Variables.ListaSimpleRed.InsertarNodoRedListaSimple(NuevoBloque);
              java.awt.EventQueue.invokeLater(new Runnable() {
                  @Override
@@ -82,6 +88,9 @@
          private void Bt_SalirActionPerformed(ActionEvent e)
          {
              this.dispose();
+             Variables.NodoListaDobleBloques.SalirNodoRedListaDoble();
+             Variables.NodoListaDobleBloques.stop();
+             System.exit(0);
          }
 
          private void Bt_PerfilActionPerformed(ActionEvent e)
@@ -155,6 +164,10 @@
                      }
                  });
              }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+             }
          }
 
          private void Bt_CategoriasReporteActionPerformed(ActionEvent e)
@@ -173,6 +186,10 @@
                          new Reportes().setVisible(true);
                      }
                  });
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR_MESSAGE);
              }
          }
 
@@ -222,6 +239,10 @@
                                  }
                              });
                          }
+                         else
+                         {
+                             JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+                         }
                      }
                  }
              }
@@ -248,6 +269,10 @@
                      }
                  });
              }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+             }
          }
 
          private void Bt_NodosReporteActionPerformed(ActionEvent e)
@@ -267,12 +292,16 @@
                      }
                  });
              }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+             }
          }
 
          private void Bt_BlockchainReporteActionPerformed(ActionEvent e)
          {
              Variables.NombreReporte = "ReporteBloquesListaDoble.png";
-             Variables.ListaSimpleRed.GraficarRedListaSimple();
+             Variables.ListaDobleBloques.GraficarBloquesListaDoble();
 
              if(Variables.GenereReporte)
              {
@@ -286,6 +315,34 @@
                      }
                  });
              }
+             else
+             {
+                 JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR_MESSAGE);
+             }
+         }
+
+         private void Bt_SincronizarActionPerformed(ActionEvent e)
+         {
+              Metodos.GenerarBloquesJSON.GenerarBloques();
+         }
+
+         private void Bt_ConfiguracionActionPerformed(ActionEvent e)
+         {
+             java.awt.EventQueue.invokeLater(new Runnable() {
+                 @Override
+                 public void run()
+                 {
+                     new Configuraciones().setVisible(true);
+                 }
+             });
+         }
+
+         private void thisWindowClosing(WindowEvent e)
+         {
+             this.dispose();
+             Variables.NodoListaDobleBloques.SalirNodoRedListaDoble();
+             Variables.NodoListaDobleBloques.stop();
+             System.exit(0);
          }
 
          private void initComponents()
@@ -298,7 +355,8 @@
              Bt_Logout = new JMenuItem();
              Bt_Salir = new JMenuItem();
              menu2 = new JMenu();
-             menuItem3 = new JMenuItem();
+             Bt_Configuracion = new JMenuItem();
+             Bt_Sincronizar = new JMenuItem();
              Bt_JSONUsuarios = new JMenuItem();
              Bt_JSONLibros = new JMenuItem();
              menu3 = new JMenu();
@@ -319,6 +377,14 @@
              //======== this ========
              setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
              setForeground(SystemColor.textHighlight);
+             setResizable(false);
+             setTitle("Usac Library SEG");
+             addWindowListener(new WindowAdapter() {
+                 @Override
+                 public void windowClosing(WindowEvent e) {
+                     thisWindowClosing(e);
+                 }
+             });
              Container contentPane = getContentPane();
              contentPane.setLayout(null);
 
@@ -373,12 +439,21 @@
                      menu2.setFont(new Font("Arial", Font.BOLD, 16));
                      menu2.setIcon(new ImageIcon(getClass().getResource("/Assets/Herramientas.jpg")));
 
-                     //---- menuItem3 ----
-                     menuItem3.setText("Configuraci\u00f3n IP/Puerto");
-                     menuItem3.setForeground(Color.blue);
-                     menuItem3.setFont(new Font("Arial", Font.BOLD, 16));
-                     menuItem3.setIcon(new ImageIcon(getClass().getResource("/Assets/Ip.jpg")));
-                     menu2.add(menuItem3);
+                     //---- Bt_Configuracion ----
+                     Bt_Configuracion.setText("Configuraci\u00f3n IP/Puerto");
+                     Bt_Configuracion.setForeground(Color.blue);
+                     Bt_Configuracion.setFont(new Font("Arial", Font.BOLD, 16));
+                     Bt_Configuracion.setIcon(new ImageIcon(getClass().getResource("/Assets/Ip.jpg")));
+                     Bt_Configuracion.addActionListener(e -> Bt_ConfiguracionActionPerformed(e));
+                     menu2.add(Bt_Configuracion);
+
+                     //---- Bt_Sincronizar ----
+                     Bt_Sincronizar.setText("Sincronizar");
+                     Bt_Sincronizar.setFont(new Font("Arial", Font.BOLD, 16));
+                     Bt_Sincronizar.setForeground(Color.blue);
+                     Bt_Sincronizar.setIcon(new ImageIcon(getClass().getResource("/Assets/Sincronizar.jpg")));
+                     Bt_Sincronizar.addActionListener(e -> Bt_SincronizarActionPerformed(e));
+                     menu2.add(Bt_Sincronizar);
 
                      //---- Bt_JSONUsuarios ----
                      Bt_JSONUsuarios.setText("Cargar Archivos Json Usuarios");
@@ -532,7 +607,8 @@
          private JMenuItem Bt_Logout;
          private JMenuItem Bt_Salir;
          private JMenu menu2;
-         private JMenuItem menuItem3;
+         private JMenuItem Bt_Configuracion;
+         private JMenuItem Bt_Sincronizar;
          private JMenuItem Bt_JSONUsuarios;
          private JMenuItem Bt_JSONLibros;
          private JMenu menu3;

@@ -20,6 +20,7 @@
     public class CatalogoLibros extends JFrame
     {
         ArrayList<Libros> ArrayLibros = new ArrayList<Libros>();
+        DefaultTableModel Modelo;
 
         public CatalogoLibros()
         {
@@ -27,11 +28,12 @@
             ArrayLibros = Variables.ArbolAVLCategorias.ListarTodosLosLibrosArbolAVL();
             ObtenerLibros();
             ObtenerCategorias();
+            setLocationRelativeTo(null);
         }
 
         public void ObtenerLibros()
         {
-            DefaultTableModel Modelo = new DefaultTableModel();
+            Modelo = new DefaultTableModel();
             Modelo.addColumn("ISBN");
             Modelo.addColumn("Título");
             Modelo.addColumn("Autor");
@@ -90,6 +92,14 @@
             }
         }
 
+        public void FiltrarTabla(String Libro, JTable TablaBuscar)
+        {
+            TableRowSorter<DefaultTableModel> Filtro = new TableRowSorter<>(Modelo);
+
+            TablaBuscar.setRowSorter(Filtro);
+            Filtro.setRowFilter(RowFilter.regexFilter(Libro, 1));
+        }
+
         private void Cb_CategoriasItemStateChanged(ItemEvent e)
         {
             try
@@ -117,6 +127,11 @@
             this.dispose();;
         }
 
+        private void Buscar_FieldKeyReleased(KeyEvent e)
+        {
+            FiltrarTabla(Buscar_Field.getText(), Tb_Libros);
+        }
+
         private void initComponents()
         {
             // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -128,8 +143,13 @@
             scrollPane1 = new JScrollPane();
             Tb_Libros = new JTable();
             Bt_Regresar = new JButton();
+            Buscar_Field = new JTextField();
+            label5 = new JLabel();
 
             //======== this ========
+            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            setResizable(false);
+            setTitle("Catalogo");
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
             contentPane.add(label2);
@@ -186,6 +206,25 @@
             contentPane.add(Bt_Regresar);
             Bt_Regresar.setBounds(990, 75, 135, Bt_Regresar.getPreferredSize().height);
 
+            //---- Buscar_Field ----
+            Buscar_Field.setForeground(new Color(0, 153, 255));
+            Buscar_Field.setFont(new Font("Arial", Font.BOLD, 16));
+            Buscar_Field.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    Buscar_FieldKeyReleased(e);
+                }
+            });
+            contentPane.add(Buscar_Field);
+            Buscar_Field.setBounds(130, 135, 300, 30);
+
+            //---- label5 ----
+            label5.setText("Buscar Libro:");
+            label5.setFont(new Font("Arial", Font.BOLD, 16));
+            label5.setForeground(new Color(0, 153, 255));
+            contentPane.add(label5);
+            label5.setBounds(20, 130, 115, 30);
+
             {
                 // compute preferred size
                 Dimension preferredSize = new Dimension();
@@ -214,5 +253,7 @@
         private JScrollPane scrollPane1;
         private JTable Tb_Libros;
         private JButton Bt_Regresar;
+        private JTextField Buscar_Field;
+        private JLabel label5;
         // JFormDesigner - End of variables declaration  //GEN-END:variables
     }

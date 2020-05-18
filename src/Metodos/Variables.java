@@ -3,6 +3,7 @@
 
     import Estructuras.*;
     import javax.swing.*;
+    import java.net.InetAddress;
 
     public class Variables
     {
@@ -22,4 +23,7 @@
         public static NodoListaDoble NodoListaDobleBloques = new NodoListaDoble();
         public static DataBloques GenerarBloquesData = new DataBloques();
         public static int IndexBloque = 0;
+        public static String OsName = "";
+        public static String ExternalIp = "";
+        public static String InternalIp = "";
     }

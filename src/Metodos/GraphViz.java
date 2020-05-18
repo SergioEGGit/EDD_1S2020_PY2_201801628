@@ -222,13 +222,14 @@ public class GraphViz
             if (dot != null)
             {
                 img_stream = get_img_stream(dot, type, representationType);
-                if (dot.delete() == false)
+                if (!dot.delete())
                 {
                     System.err.println("Warning: " + dot.getAbsolutePath() + " could not be deleted!");
                     Variables.GenereReporte = false;
                 }
                 return img_stream;
             }
+            Variables.GenereReporte = false;
             return null;
         } catch (java.io.IOException ioe) {
 
@@ -257,14 +258,17 @@ public class GraphViz
      */
     public int writeGraphToFile(byte[] img, File to)
     {
-        try {
+        try
+        {
             FileOutputStream fos = new FileOutputStream(to);
             fos.write(img);
             fos.close();
-        } catch (java.io.IOException ioe) {
+        }
+        catch (java.io.IOException ioe)
+        {
             Variables.GenereReporte = false;
-
-            return -1; }
+            return -1;
+        }
         return 1;
     }
 
@@ -289,12 +293,14 @@ public class GraphViz
         File img;
         byte[] img_stream = null;
 
-        try {
+        try
+        {
             img = File.createTempFile("graph_", "." + type, new File(this.tempDir));
             Runtime rt = Runtime.getRuntime();
 
             // patch by Mike Chenault
             // representation type with -K argument by Olivier Duplouy
+            Variables.GenereReporte = false;
             String[] args = { executable, "-T" + type, "-K" + representationType, "-Gdpi=" + dpiSizes[this.currentDpiPos], dot.getAbsolutePath(), "-o", img.getAbsolutePath() };
             Process p = rt.exec(args);
             p.waitFor();
@@ -303,26 +309,30 @@ public class GraphViz
             img_stream = new byte[in.available()];
             in.read(img_stream);
             // Close it if we need to
-            if( in != null ) {
-                in.close();
+            if( in != null )
+            {
                 Variables.GenereReporte = true;
+                in.close();
             }
 
-            if (img.delete() == false) {
-                System.err.println("Warning: " + img.getAbsolutePath() + " could not be deleted!");
+            if (!img.delete())
+            {
                 Variables.GenereReporte = false;
+                System.err.println("Warning: " + img.getAbsolutePath() + " could not be deleted!");
             }
         }
-        catch (java.io.IOException ioe) {
+        catch (java.io.IOException ioe)
+        {
+            Variables.GenereReporte = false;
             System.err.println("Error:    in I/O processing of tempfile in dir " + tempDir + "\n");
             System.err.println("       or in calling external command");
             ioe.printStackTrace();
-            Variables.GenereReporte = false;
         }
-        catch (java.lang.InterruptedException ie) {
+        catch (java.lang.InterruptedException ie)
+        {
+            Variables.GenereReporte = false;
             System.err.println("Error: the execution of the external program was interrupted");
             ie.printStackTrace();
-            Variables.GenereReporte = false;
         }
 
         return img_stream;
@@ -343,10 +353,11 @@ public class GraphViz
             fout.write(str);
             fout.close();
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
+            Variables.GenereReporte = false;
             System.err.println("Error: I/O error while writing the dot source to temp file!");
 
-            Variables.GenereReporte = false;
             return null;
         }
         return temp;

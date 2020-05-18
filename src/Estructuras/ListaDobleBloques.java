@@ -151,7 +151,7 @@
         {
             String Cadena = "";
 
-            Cadena += "digraph G { \n rankdir = \"LR\": \n node[shape = rect, fontname = Arial, color = gold, fontcolor = cyan4]; \n";
+            Cadena += "digraph G { \n rankdir = \"LR\"; \n node[shape = rect, fontname = Arial, color = gold, fontcolor = cyan4]; \n";
             Bloques BloqueAuxiliar = Final;
 
             while(BloqueAuxiliar != null)

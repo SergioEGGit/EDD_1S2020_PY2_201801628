@@ -6,6 +6,8 @@ new FormModel {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
 			"title": "Perfil"
+			"defaultCloseOperation": 2
+			"resizable": false
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "Bt_Modificar"
 				"text": "Modificar"

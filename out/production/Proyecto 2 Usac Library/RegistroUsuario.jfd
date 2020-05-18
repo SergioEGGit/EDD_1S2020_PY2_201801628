@@ -6,6 +6,8 @@ new FormModel {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
 			"title": "Registro Usuario"
+			"defaultCloseOperation": 2
+			"resizable": false
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "Carnet_Field"
 				"font": new java.awt.Font( "Arial", 1, 16 )

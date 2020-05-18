@@ -28,6 +28,7 @@ import javax.swing.*;
             initComponents();
             Categorias = Variables.ArbolAVLCategorias.ListarCategoriasArbolAVL();
             ObtenerCategorias();
+            setLocationRelativeTo(null);
         }
 
         public void ObtenerCategorias()
@@ -154,6 +155,9 @@ import javax.swing.*;
             Bt_Regresar = new JButton();
 
             //======== this ========
+            setTitle("Categorias");
+            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            setResizable(false);
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
 

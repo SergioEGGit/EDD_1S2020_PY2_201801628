@@ -19,6 +19,7 @@
         {
             initComponents();
             Variables.EstoyEnLogin = true;
+
         }
 
         private void BT_IngresarActionPerformed(ActionEvent e)
@@ -43,7 +44,6 @@
 
         private void BT_RegistrarActionPerformed(ActionEvent e)
         {
-            this.dispose();
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run()
@@ -62,6 +62,25 @@
             }
         }
 
+        private void Bt_ConfiguracionActionPerformed(ActionEvent e)
+        {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run()
+                {
+                    new Configuraciones().setVisible(true);
+                }
+            });
+        }
+
+        private void thisWindowClosing(WindowEvent e)
+        {
+            this.dispose();
+            Variables.NodoListaDobleBloques.SalirNodoRedListaDoble();
+            Variables.NodoListaDobleBloques.stop();
+            System.exit(0);
+        }
+
         private void initComponents()
         {
             // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -73,10 +92,19 @@
             label2 = new JLabel();
             label3 = new JLabel();
             label4 = new JLabel();
+            Bt_Configuracion = new JButton();
 
             //======== this ========
             setTitle("Ingreso");
             setFont(new Font("Arial", Font.BOLD, 14));
+            setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            setResizable(false);
+            addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    thisWindowClosing(e);
+                }
+            });
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
 
@@ -137,6 +165,14 @@
             contentPane.add(label4);
             label4.setBounds(new Rectangle(new Point(200, 70), label4.getPreferredSize()));
 
+            //---- Bt_Configuracion ----
+            Bt_Configuracion.setText("Configuraci\u00f3n");
+            Bt_Configuracion.setFont(new Font("Arial", Font.BOLD, 16));
+            Bt_Configuracion.setForeground(new Color(0, 153, 255));
+            Bt_Configuracion.addActionListener(e -> Bt_ConfiguracionActionPerformed(e));
+            contentPane.add(Bt_Configuracion);
+            Bt_Configuracion.setBounds(new Rectangle(new Point(410, 15), Bt_Configuracion.getPreferredSize()));
+
             {
                 // compute preferred size
                 Dimension preferredSize = new Dimension();
@@ -165,5 +201,6 @@
         private JLabel label2;
         private JLabel label3;
         private JLabel label4;
+        private JButton Bt_Configuracion;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     }

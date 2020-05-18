@@ -19,6 +19,7 @@
         public RegistroUsuario()
         {
             initComponents();
+            setLocationRelativeTo(null);
         }
 
         private void Carnet_FieldKeyTyped(KeyEvent e)
@@ -63,21 +64,7 @@
 
         private void Bt_RegresarActionPerformed(ActionEvent e)
         {
-            if(Variables.EstoyEnLogin)
-            {
-                this.dispose();
-                java.awt.EventQueue.invokeLater(new Runnable() {
-                    @Override
-                    public void run()
-                    {
-                        new Login().setVisible(true);
-                    }
-                });
-            }
-            else
-            {
-                this.dispose();
-            }
+            this.dispose();
         }
 
         private void Bt_RegistrarActionPerformed(ActionEvent e)
@@ -103,13 +90,6 @@
                     else
                     {
                         this.dispose();
-                        java.awt.EventQueue.invokeLater(new Runnable() {
-                            @Override
-                            public void run()
-                            {
-                                new Login().setVisible(true);
-                            }
-                        });
                     }
                 }
                 else
@@ -151,6 +131,8 @@
 
             //======== this ========
             setTitle("Registro Usuario");
+            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            setResizable(false);
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
 

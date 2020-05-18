@@ -23,8 +23,12 @@
            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            getContentPane().add(Zoom.getUIPanel(), "North");
            getContentPane().add(new JScrollPane(Panel));
+           setSize(500,500);
            setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+           setLocationRelativeTo(null);
+           setResizable(true);
+           setTitle("Reportes");
        }
 
        class ImagePanel extends JPanel

@@ -11,37 +11,37 @@
 
     public class NodoListaDoble extends Thread
     {
-        private InetAddress Address;
-        private DatagramSocket Socket;
+        private InetAddress direccion;
+        private DatagramSocket socketUDP;
 
-        public InetAddress getAddress()
+        public InetAddress getDireccion()
         {
-            return Address;
+            return direccion;
         }
 
-        public void setAddress(InetAddress address)
+        public void setDireccion(InetAddress direccion)
         {
-            Address = address;
+            this.direccion = direccion;
         }
 
-        public DatagramSocket getSocket()
+        public DatagramSocket getSocketUDP()
         {
-            return Socket;
+            return socketUDP;
         }
 
-        public void setSocket(DatagramSocket socket)
+        public void setSocketUDP(DatagramSocket socketUDP)
         {
-            Socket = socket;
+            this.socketUDP = socketUDP;
         }
 
         public NodoListaDoble()
         {
             try
             {
-                Address = InetAddress.getByName("localhost");
-                Socket = new DatagramSocket();
+                direccion = InetAddress.getByName("localhost");
+                socketUDP = new DatagramSocket();
             }
-            catch(UnknownHostException | SocketException e)
+            catch (UnknownHostException | SocketException e)
             {
                 Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, e);
             }
@@ -53,148 +53,157 @@
             {
                 try
                 {
-                    System.out.println("Listening....");
-                    byte[] Cadena = new byte[1024];
-                    DatagramPacket Peticiones = new DatagramPacket(Cadena, Cadena.length);
-                    Socket.receive(Peticiones);
-                    System.out.println("Get Request");
-                    String Message = new String(Peticiones.getData());
-                    System.out.println(Message);
+                    System.out.println("Listining...");
+                    byte[] Buffer = new byte[1024];
+                    DatagramPacket Peticion = new DatagramPacket(Buffer, Buffer.length);
+                    socketUDP.receive(Peticion);
+                    System.out.println("Peticion");
+                    String Mensaje = new String(Peticion.getData());
+                    System.out.println(Mensaje);
 
-                    if(Message.contains("Conectar"))
+                    if (Mensaje.contains("Conectar"))
                     {
-                        NodoListaSimple NuevoNodo =  new NodoListaSimple();
-                        NuevoNodo.setPuerto(Peticiones.getPort());
+                        NodoListaSimple Nodo = new NodoListaSimple();
+                        Nodo.setPuerto(Peticion.getPort());
+                        InetAddress Ip = InetAddress.getByName(Variables.InternalIp);
+                        Nodo.setIp(Ip);
                         NodoListaSimple Inicio = Variables.ListaSimpleRed.getInicio();
-                        Variables.ListaSimpleRed.InsertarNodoRedListaSimple(NuevoNodo);
-                        String NuevoPuerto = "Agregar:" + NuevoNodo.getPuerto();
-                        byte[] Buffer = new byte[1024];
-                        Buffer = NuevoPuerto.getBytes();
+                        Variables.ListaSimpleRed.InsertarNodoRedListaSimple(Nodo);
+                        String Agregar = "Agregar:" + Nodo.getPuerto();
+                        byte[] Buff = new byte[1024];
+                        Buff = Agregar.getBytes();
 
                         while(Inicio != null)
                         {
-                            if(Inicio.getPuerto() != NuevoNodo.getPuerto() && Inicio.getPuerto() != Variables.NodoListaDobleBloques.getSocket().getLocalPort())
+                            if(Inicio.getPuerto() != Nodo.getPuerto() && Inicio.getPuerto() != Variables.NodoListaDobleBloques.getSocketUDP().getLocalPort())
                             {
-                                DatagramPacket NuevaPeticion = new DatagramPacket(Buffer, Buffer.length, Address, Inicio.getPuerto());
-                                Socket.send(NuevaPeticion);
+
+                                DatagramPacket Agreguen = new DatagramPacket(Buff, Buff.length, direccion, Inicio.getPuerto());
+                                socketUDP.send(Agreguen);
                             }
                             Inicio = Inicio.getSgte();
                         }
 
                         Inicio = Variables.ListaSimpleRed.getInicio();
 
-                        while(Inicio != null)
+                        while (Inicio != null)
                         {
-                            if(Inicio.getPuerto() != NuevoNodo.getPuerto())
+                            if (Inicio.getPuerto() != Nodo.getPuerto())
                             {
-                                String Cadena2 = "Aregar:" + Inicio.getPuerto();
-                                byte[] Cadena2Array = new byte[1024];
-                                Cadena2Array = Cadena2.getBytes();
-                                DatagramPacket NuevaPeticion = new DatagramPacket(Cadena2Array, Cadena2Array.length, Address, NuevoNodo.getPuerto());
-                                Socket.send(NuevaPeticion);
+                                String Lista = "Agregar:" + Inicio.getPuerto();
+                                byte[] List = new byte[1024];
+                                List = Lista.getBytes();
+                                DatagramPacket Agreguen = new DatagramPacket(List, List.length, direccion, Nodo.getPuerto());
+                                socketUDP.send(Agreguen);
                             }
                             Inicio = Inicio.getSgte();
                         }
                     }
-                    else if(Message.contains("Agregar:"))
+                    else if (Mensaje.contains("Agregar:"))
                     {
-                        String[] Puerto = Message.trim().split(":");
-
-                        try
-                        {
-                            Long Identificador = new Long(Puerto[1].trim());
-                            int NumeroPuerto = Identificador.intValue();
-                            NodoListaSimple NuevaRed = new NodoListaSimple();
-                            NuevaRed.setPuerto(NumeroPuerto);
-                            Variables.ListaSimpleRed.InsertarNodoRedListaSimple(NuevaRed);
+                        String[] Puerto = Mensaje.trim().split(":");
+                        try {
+                            Long ISBN = new Long(Puerto[1].trim());
+                            int P = ISBN.intValue();
+                            NodoListaSimple Nodo = new NodoListaSimple();
+                            InetAddress Ip = InetAddress.getByName(Variables.InternalIp);
+                            Nodo.setIp(Ip);
+                            Nodo.setPuerto(P);
+                            Variables.ListaSimpleRed.InsertarNodoRedListaSimple(Nodo);
                         }
-                        catch (NumberFormatException e)
+                        catch (NumberFormatException ex)
                         {
-                            System.out.println("Error: " + Puerto[1]);
-                        }
-                    }
-                    else if(Message.contains("Eliminar:"))
-                    {
-                        String[] Puerto = Message.trim().split(":");
-
-                        try
-                        {
-                            Long Identificador = new Long(Puerto[1].trim());
-                            int NumeroPuerto = Identificador.intValue();
-                            NodoListaSimple RedEliminar = Variables.ListaSimpleRed.BuscarNodoRedListaSimple(NumeroPuerto);
-                            int NumeroPuertoNuevo = RedEliminar.getPuerto();
-                            Variables.ListaSimpleRed.EliminarNodoRedListaSimple(RedEliminar);
-                            NodoListaSimple Inicio = Variables.ListaSimpleRed.getInicio();
-                            String Peticion = "Eliminen:" + RedEliminar.getPuerto();
-                            byte[] Buffer = new byte[1024];
-                            Buffer = Peticion.getBytes();
-
-                            while(Inicio != null)
-                            {
-                                if(Inicio.getPuerto() != NumeroPuertoNuevo && Inicio.getPuerto() != Variables.NodoListaDobleBloques.getSocket().getLocalPort())
-                                {
-                                    DatagramPacket NuevaPeticion = new DatagramPacket(Buffer, Buffer.length, Address, Inicio.getPuerto());
-                                    Socket.send(NuevaPeticion);
-                                }
-                                Inicio = Inicio.getSgte();
-                            }
-                        }
-                        catch(NumberFormatException e)
-                        {
-                            System.out.println("Error: " + Puerto[1]);
+                            System.out.println("Error NumberFormatException value: " + Puerto[1]);
                         }
                     }
-                    else if(Message.contains("Bloques"))
+                    else if (Mensaje.contains("Eliminar:"))
                     {
-                        Metodos.GenerarBloquesJSON.ObtenerBloques(Message.trim());
-                        Variables.IndexBloque++;
-                    }
-                    else if(Message.contains("Eliminen:"))
-                    {
-                        String[] Puerto = Message.trim().split(":");
+                        String[] Puerto = Mensaje.trim().split(":");
 
                         try
                         {
                             Long ISBN = new Long(Puerto[1].trim());
-                            int NumeroPuerto = ISBN.intValue();
-                            NodoListaSimple NuevoBloque = Variables.ListaSimpleRed.BuscarNodoRedListaSimple(NumeroPuerto);
-                            Variables.ListaSimpleRed.EliminarNodoRedListaSimple(NuevoBloque);
+                            int P = ISBN.intValue();
+                            NodoListaSimple Nodo = Variables.ListaSimpleRed.BuscarNodoRedListaSimple(P);
+                            System.out.println(Mensaje + " " + P);
+                            int PuertoNodo = Nodo.getPuerto();
+                            Variables.ListaSimpleRed.EliminarNodoRedListaSimple(Nodo);
+                            NodoListaSimple Inicio = Variables.ListaSimpleRed.getInicio();
+                            String Agregar = "Eliminen:" + Nodo.getPuerto();
+                            byte[] Buff = new byte[1024];
+                            Buff = Agregar.getBytes();
+
+                            while (Inicio != null)
+                            {
+                                if (Inicio.getPuerto() != PuertoNodo && Inicio.getPuerto() != Variables.NodoListaDobleBloques.getSocketUDP().getLocalPort())
+                                {
+
+                                    DatagramPacket Agreguen = new DatagramPacket(Buff, Buff.length, direccion, Inicio.getPuerto());
+                                    socketUDP.send(Agreguen);
+                                }
+                                Inicio = Inicio.getSgte();
+                            }
                         }
-                        catch (NumberFormatException e)
+                        catch (NumberFormatException ex)
                         {
-                            e.printStackTrace();
+                            System.out.println("Error NumberFormatException value: " + Puerto[1]);
+                        }
+                    }
+                    else if (Mensaje.contains("Bloques"))
+                    {
+                        System.out.print(Mensaje);
+                        Metodos.GenerarBloquesJSON.ObtenerBloques(Mensaje.trim());
+                        Variables.IndexBloque++;
+                        System.out.println(Variables.IndexBloque);
+                    }
+                    else if (Mensaje.contains("Eliminen:"))
+                    {
+                        String[] Puerto = Mensaje.trim().split(":");
+
+                        try
+                        {
+                            Long ISBN = new Long(Puerto[1].trim());
+                            int P = ISBN.intValue();
+                            NodoListaSimple Nodo = Variables.ListaSimpleRed.BuscarNodoRedListaSimple(P);
+                            System.out.println(Mensaje + " " + P);
+                            Variables.ListaSimpleRed.EliminarNodoRedListaSimple(Nodo);
+                        }
+                        catch (NumberFormatException ex)
+                        {
+                            System.out.println("Error NumberFormatException value: " + Puerto[1]);
                         }
                     }
                 }
-                catch (IOException e)
+                catch (IOException ex)
                 {
-                    Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, e);
+                    Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Error");
                 }
             }
         }
 
-        public void EnviarNodoRedListaDoble(NodoListaSimple Inicio, String Cadena)
+        public void EnviarNodoRedListaDoble(NodoListaSimple Inicio, String Ruta)
         {
             try
             {
                 NodoListaSimple Aux = Variables.ListaSimpleRed.getInicio();
 
-                while(Aux != null)
+                while (Aux != null)
                 {
-                    if(Aux.getPuerto() != Variables.NodoListaDobleBloques.getSocket().getLocalPort())
+                    if (Aux.getPuerto() != Variables.NodoListaDobleBloques.getSocketUDP().getLocalPort())
                     {
                         byte[] Buffer = new byte[1024];
-                        Buffer = Cadena.getBytes();
-                        DatagramPacket Peticion = new DatagramPacket(Buffer, Buffer.length, Address, Aux.getPuerto());
+                        Buffer = Ruta.getBytes();
+                        DatagramPacket Respuesta = new DatagramPacket(Buffer, Buffer.length, direccion, Aux.getPuerto());
 
-                        Socket.send(Peticion);
+                        socketUDP.send(Respuesta);
                     }
                     Aux = Aux.getSgte();
                 }
             }
-            catch (IOException e)
+            catch (IOException ex)
             {
-                Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -203,38 +212,39 @@
             try
             {
                 NodoListaSimple Aux = Variables.ListaSimpleRed.getInicio();
-                String Array = "Eliminar:" + Variables.NodoListaDobleBloques.getSocket().getLocalPort();
-                byte[] ListaArray = new byte[1024];
-                ListaArray = Array.getBytes();
+                String Lista = "Eliminar:" + Variables.NodoListaDobleBloques.getSocketUDP().getLocalPort();
+                byte[] List = new byte[1024];
+                List = Lista.getBytes();
 
-                DatagramPacket Peticion = new DatagramPacket(ListaArray, ListaArray.length, Address, Aux.getPuerto());
+                DatagramPacket Respuesta = new DatagramPacket(List, List.length, direccion, Aux.getPuerto());
 
-                Socket.send(Peticion);
+                socketUDP.send(Respuesta);
             }
-            catch (IOException e)
+            catch (IOException ex)
             {
-                e.printStackTrace();
+                Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
 
-        public void ConectarNodoRedListaDoble(int Puerto)
+        public void ConectarNodoRedListaDoble(int Puerto, String Ip)
         {
-            String Cadena = "Conectar";
+            String Conectar = "Conectar";
             byte[] Buffer = new byte[1024];
 
             try
             {
-                Buffer = Cadena.getBytes();
-                DatagramPacket Peticion = new DatagramPacket(Buffer, Buffer.length, Address, Puerto);
+                InetAddress IpServer = InetAddress.getByName(Ip);
+                Buffer = Conectar.getBytes();
+                DatagramPacket Respuesta = new DatagramPacket(Buffer, Buffer.length, direccion, Puerto);
 
-                Socket.send(Peticion);
-                JOptionPane.showMessageDialog(null, "Conexion Realizada Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
+                socketUDP.send(Respuesta);
+                JOptionPane.showMessageDialog(null,"Conexion Realizada Con Exito", "Exito!", JOptionPane.INFORMATION_MESSAGE);
             }
-            catch (IOException e)
+            catch (IOException ex)
             {
-                Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, e);
-                JOptionPane.showMessageDialog(null, "Fallo En Conexion", "Error!", JOptionPane.ERROR);
+                Logger.getLogger(NodoListaSimple.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Fallo En Conexion", "Error!", JOptionPane.ERROR_MESSAGE);
             }
         }
-
     }

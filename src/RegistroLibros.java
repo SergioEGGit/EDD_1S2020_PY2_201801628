@@ -19,6 +19,7 @@
         public RegistroLibros()
         {
             initComponents();
+            setLocationRelativeTo(null);
         }
 
         private void ISBN_FieldKeyTyped(KeyEvent e)
@@ -147,6 +148,10 @@
             this.dispose();
         }
 
+        private void textField4KeyTyped(KeyEvent e) {
+            // TODO add your code here
+        }
+
         private void initComponents()
         {
             // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -172,6 +177,9 @@
             Bt_Regresar = new JButton();
 
             //======== this ========
+            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            setResizable(false);
+            setTitle("Registro Libros");
             Container contentPane = getContentPane();
             contentPane.setLayout(null);
 
@@ -321,7 +329,8 @@
             Idioma_Field.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                     Idioma_FieldKeyTyped(e);
+                    textField4KeyTyped(e);
+                    Idioma_FieldKeyTyped(e);
                 }
             });
             contentPane.add(Idioma_Field);

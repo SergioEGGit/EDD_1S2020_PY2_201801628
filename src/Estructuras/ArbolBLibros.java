@@ -80,7 +80,7 @@
                                 +"<tr><td>ISBN: "+ Libro.getISBN() + "</td></tr>"
                                 +"<tr><td>Título: "+ Libro.getTitulo().replaceAll(";", "").replaceAll("&", "&#38;")+"</td></tr>"
                                 +"</table></td>";
-                        Cadena += "<td port='port_" + ContadorAux + "" + ContadorAux2 + "'>H" + ContadorAux2 + "</td>";
+                        Cadena += "<td port='port_" + ContadorAux + "" + ContadorAux2 + "'>N" + ContadorAux2 + "</td>";
                         ContadorAux2++;
                     }
                 }
@@ -186,4 +186,6 @@
             }
             return null;
         }
+
+
     }

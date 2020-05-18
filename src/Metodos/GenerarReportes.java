@@ -3,6 +3,7 @@
 
     import javax.swing.*;
     import java.io.*;
+    import java.nio.charset.StandardCharsets;
 
 
     public class GenerarReportes
@@ -18,15 +19,10 @@
 
         public static synchronized void GenerarArchivoDot(String Cadena)
         {
-            File Archivo;
-            FileWriter Writer;
-
             try
             {
                 String Ruta = System.getProperty("user.dir") + "\\" + TipoReporte + ".txt";
-                Archivo = new File(Ruta);
-                Writer = new FileWriter(Archivo);
-                BufferedWriter Buffer = new BufferedWriter(Writer);
+                BufferedWriter Buffer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Ruta), StandardCharsets.UTF_8));
                 PrintWriter Print = new PrintWriter(Buffer);
                 Print.write(Cadena + "\n");
                 Print.close();
@@ -43,17 +39,27 @@
             try
             {
                 ProcessBuilder Builder;
+                String FileInput = "";
+                String FileOutput = "";
 
-                String FileOutput = System.getProperty("user.dir") + "\\" + TipoReporte + ".png";
-                String FileInput = System.getProperty("user.dir") + "\\" + TipoReporte + ".txt";
+                if(Variables.OsName.equals("Windows10") || Variables.OsName.equals("Windows8") || Variables.OsName.equals("Windows7") || Variables.OsName.equals("Windows"))
+                {
+                    FileOutput = System.getProperty("user.dir") + "\\" + TipoReporte + ".png";
+                    FileInput = System.getProperty("user.dir") + "\\" + TipoReporte + ".txt";
+                }
+                else if(Variables.OsName.equals("Linux") || Variables.OsName.equals("MacOSX"))
+                {
+                    FileOutput = System.getProperty("user.dir") + "/" + TipoReporte + ".png";
+                    FileInput = System.getProperty("user.dir") + "/" + TipoReporte + ".txt";
+                }
 
-                Builder = new ProcessBuilder("dote", "-Tpng", "-o", FileOutput, FileInput);
+                Builder = new ProcessBuilder("dot", "-Tpng", "-o", FileOutput, FileInput);
                 Builder.redirectErrorStream(true);
                 Builder.start();
 
                 try
                 {
-                    Thread.sleep(9000);
+                    Thread.sleep(10000);
                 }
                 catch (Exception e)
                 {
@@ -67,8 +73,19 @@
             {
                 String Type = "png";
                 String RepresentationType = "dot";
-                String FileOutput = System.getProperty("user.dir") + "\\" + TipoReporte;
-                String FileInput = System.getProperty("user.dir") + "\\" + TipoReporte + ".txt";
+                String FileOutput = "";
+                String FileInput = "";
+
+                if(Variables.OsName.equals("Windows10") || Variables.OsName.equals("Windows8") || Variables.OsName.equals("Windows7") || Variables.OsName.equals("Windows"))
+                {
+                    FileOutput = System.getProperty("user.dir") + "\\" + TipoReporte;
+                    FileInput = System.getProperty("user.dir") + "\\" + TipoReporte + ".txt";
+                }
+                else if(Variables.OsName.equals("Linux") || Variables.OsName.equals("MacOSX"))
+                {
+                    FileOutput = System.getProperty("user.dir") + "/" + TipoReporte;
+                    FileInput = System.getProperty("user.dir") + "/" + TipoReporte + ".txt";
+                }
 
                 GraphViz GenerarGrafica = new GraphViz();
                 GenerarGrafica.addln(Cadena);
@@ -79,18 +96,13 @@
 
                 try
                 {
-                    Thread.sleep(6000);
+                    Thread.sleep(10000);
                 }
                 catch (Exception Ex)
                 {
                     Ex.printStackTrace();
                 }
                 Variables.NombreReporte = FileOutput + "." + Type;
-
-                if(!Variables.GenereReporte)
-                {
-                    JOptionPane.showMessageDialog(null, "El Reporte No Se Pudo Generar Con Exito \nVerifique Que Graphviz Se Encuentre Configurado De Manera Correcta", "Error!", JOptionPane.ERROR);
-                }
             }
         }
     }

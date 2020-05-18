@@ -7,6 +7,9 @@ new FormModel {
 			name: "this"
 			"title": "Ingreso"
 			"font": new java.awt.Font( "Arial", 1, 14 )
+			"defaultCloseOperation": 3
+			"resizable": false
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosing", "thisWindowClosing", true ) )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "User_Field"
 				"font": new java.awt.Font( "Arial", 1, 16 )
@@ -82,6 +85,16 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 200
 				"y": 70
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "Bt_Configuracion"
+				"text": "Configuración"
+				"font": new java.awt.Font( "Arial", 1, 16 )
+				"foreground": new java.awt.Color( 0, 153, 255, 255 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "Bt_ConfiguracionActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 410
+				"y": 15
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
